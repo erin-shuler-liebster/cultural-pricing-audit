@@ -1,15 +1,10 @@
-
 from typing import Dict
 import numpy as np
 
 class CulturalPricingTranslator:
     def __init__(self, cultural_profiles: Dict[str, Dict[str, float]]):
         self.country_profiles = cultural_profiles
-        self.thresholds = {
-            'low': 0.33,
-            'medium': 0.67,
-            'high': 1.0
-        }
+        self.thresholds = {'low': 0.33, 'medium': 0.67, 'high': 1.0}
 
     def categorize_score(self, score: float) -> str:
         if score <= self.thresholds['low']:
@@ -61,12 +56,22 @@ class CulturalPricingTranslator:
 
     def explain_trace(self, country: str) -> Dict[str, str]:
         profile = self.country_profiles[country]
-        trace = {}
-        for dim, value in profile.items():
-            category = self.categorize_score(value)
-            explanation = self.cultural_logic_trace(dim, value)
-            trace[dim] = f"{dim.title()} ({category}): {explanation}"
-        return trace
+        return {
+            dim: f"{dim.title()} ({self.categorize_score(value)}): {self.cultural_logic_trace(dim, value)}"
+            for dim, value in profile.items()
+        }
+
+    def compare(self, country1: str, country2: str) -> float:
+        p1 = self.country_profiles[country1]
+        p2 = self.country_profiles[country2]
+        return np.sqrt(sum((p1[k] - p2[k])**2 for k in p1))
+
+    def get_dimension_focus(self, country: str) -> Dict[str, str]:
+        profile = self.country_profiles[country]
+        return {
+            dim: level for dim, value in profile.items()
+            if (level := self.categorize_score(value)) in ['low', 'high']
+        }
 
     def assess_alignment(self, website_tags: Dict[str, str], country: str) -> Dict[str, str]:
         profile = self.country_profiles[country]
@@ -75,9 +80,9 @@ class CulturalPricingTranslator:
             expected = self.cultural_logic_trace(dim, value).lower()
             actual = website_tags.get(dim, '').lower()
             if expected in actual:
-                feedback[dim] = "✅ Matched expected cultural signal."
+                feedback[dim] = "Matched expected cultural signal."
             else:
-                feedback[dim] = f"⚠️ Expected: {expected} | Found: {actual or 'None'}"
+                feedback[dim] = f"Expected: {expected} | Found: {actual or 'None'}"
         return feedback
 
     def recommend_improvements(self, website_tags: Dict[str, str], country: str) -> Dict[str, str]:
@@ -87,5 +92,5 @@ class CulturalPricingTranslator:
             expected = self.cultural_logic_trace(dim, value).lower()
             actual = website_tags.get(dim, '').lower()
             if expected not in actual:
-                improvements[dim] = f"🔧 Improve by emphasizing: {expected}"
+                improvements[dim] = f"Improve by emphasizing: {expected}"
         return improvements
