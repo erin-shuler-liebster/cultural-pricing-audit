@@ -17,36 +17,12 @@ class CulturalPricingTranslator:
     def cultural_logic_trace(self, dimension: str, value: float) -> str:
         category = self.categorize_score(value)
         logic = {
-            'power_distance': {
-                'low': "Flat pricing; peer justification",
-                'medium': "Balanced pricing tiers",
-                'high': "Hierarchical tiers; expert justification"
-            },
-            'individualism': {
-                'low': "Collective framing; standard offers",
-                'medium': "Moderate personalization",
-                'high': "Highly personalized; autonomy"
-            },
-            'uncertainty_avoidance': {
-                'low': "Minimal info display",
-                'medium': "Transparent, but flexible",
-                'high': "Highly transparent with guarantees"
-            },
-            'masculinity': {
-                'low': "Care/empathy driven",
-                'medium': "Balanced emotion and results",
-                'high': "Competitive, performance-driven"
-            },
-            'long_term_orientation': {
-                'low': "Immediate gratification",
-                'medium': "Blend short- and long-term value",
-                'high': "Deferred rewards, future benefits"
-            },
-            'indulgence': {
-                'low': "Rational tone",
-                'medium': "Balanced emotional messaging",
-                'high': "Impulse/personal joy messaging"
-            }
+            'power_distance': {'low': "Flat pricing; peer justification", 'medium': "Balanced pricing tiers", 'high': "Hierarchical tiers; expert justification"},
+            'individualism': {'low': "Collective framing; standard offers", 'medium': "Moderate personalization", 'high': "Highly personalized; autonomy"},
+            'uncertainty_avoidance': {'low': "Minimal info display", 'medium': "Transparent, but flexible", 'high': "Highly transparent with guarantees"},
+            'masculinity': {'low': "Care/empathy driven", 'medium': "Balanced emotion and results", 'high': "Competitive, performance-driven"},
+            'long_term_orientation': {'low': "Immediate gratification", 'medium': "Blend short- and long-term value", 'high': "Deferred rewards, future benefits"},
+            'indulgence': {'low': "Rational tone", 'medium': "Balanced emotional messaging", 'high': "Impulse/personal joy messaging"}
         }
         return logic[dimension][category]
 
@@ -68,10 +44,7 @@ class CulturalPricingTranslator:
 
     def get_dimension_focus(self, country: str) -> Dict[str, str]:
         profile = self.country_profiles[country]
-        return {
-            dim: level for dim, value in profile.items()
-            if (level := self.categorize_score(value)) in ['low', 'high']
-        }
+        return {dim: level for dim, value in profile.items() if (level := self.categorize_score(value)) in ['low', 'high']}
 
     def assess_alignment(self, website_tags: Dict[str, str], country: str) -> Dict[str, str]:
         profile = self.country_profiles[country]

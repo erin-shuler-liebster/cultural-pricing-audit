@@ -6,6 +6,8 @@ st.markdown("""
 ### The Cultural Amplification Effect
 Digital does **not** equal convergence. In fact, it **amplifies cultural variance** due to missing physical context and human interactions.
 
+While globalization brings shared technology, the way people **interpret**, **trust**, and **respond** to pricing still depends on culture.
+
 ---
 
 ### Information Architecture and Cultural Comfort
@@ -13,71 +15,52 @@ Without a salesperson or physical space, your website must:
 - Establish trust visually
 - Provide enough vs. not too much information
 - Use culturally appropriate justification structures
+- Adjust copy tone and layout to match user expectations
+
+This is especially important when pricing is involved — since pricing reflects value, trust, fairness, and decision-making speed.
+
+---
+
+### Culture in Digital Contexts
+The digital environment **does not neutralize culture** — it amplifies it.
+
+Here’s how different cultures respond online:
+
+- **High Uncertainty Avoidance (UAI)**:  
+  Needs more information, structure, FAQs, visual reassurance  
+  → Avoid ambiguity. Use guarantees, terms, and clarity.
+
+- **Low Power Distance (PDI)**:  
+  Prefers peer-reviewed content over authority-based messaging  
+  → Avoid elite tiers unless justified by function.
+
+- **High Power Distance (PDI)**:  
+  Responds positively to expert endorsement and premium-tiered offers  
+  → Highlight expertise and hierarchy where culturally accepted.
+
+- **Individualistic Cultures**:  
+  Prefer personal dashboards, customization, and autonomy  
+  → Use terms like “your price,” “tailored to you,” and flexible plan builders.
+
+- **Collectivist Cultures**:  
+  Trust testimonials, group benefit messaging, and social proof  
+  → “Join others who benefit,” “family plans,” or “community access” are effective.
 
 ---
 
 ### Trust and Authority in Digital Contexts
-- **High PDI**: trust expert-endorsed or premium-tiered pricing.
-- **Low PDI**: demand peer-reviewed, transparent communication.
+When your brand replaces human salespeople with UX and copy, trust must be rebuilt.
+
+- **High PDI**: Trusts expert-approved or status-based pricing  
+- **Low PDI**: Wants open, flat pricing and peer validation
+
+Digital touchpoints become cultural translators.
 
 ---
 
 ### Summary
-Design matters more than ever. What you show, how much you say, and the justification method must **match cultural expectations**.
-""")
-✅ NEW PAGE 3: pages/03_Global_Dimension_Breakdown.py
-python
-Copy
-Edit
-%%writefile pages/03_Global_Dimension_Breakdown.py
-import streamlit as st
+Design matters more than ever.  
+What you show, how much you say, and the justification method must **match cultural expectations**.
 
-st.title("Core Cultural Dimensions & Pricing Implications")
-
-st.markdown("""
-Use this page to explore the expected behavior of different cultural contexts.
-
-You’ll find benchmark countries grouped by **high/low** values in each dimension.
-
-👉 **Try pairing this page with your target market analysis.**
-
----
-
-### 1. Power Distance (PDI)
-**High**: Malaysia (100), Guatemala (95)  
-**Low**: Denmark (18), Israel (13)
-
-**Expectations:**  
-- High PDI = status hierarchy and expert endorsement  
-- Low PDI = fairness, transparency
-
----
-
-### 2. Individualism vs. Collectivism (IDV)
-**High**: USA (91), UK (89)  
-**Low**: Guatemala (6), Ecuador (8)
-
----
-
-### 3. Uncertainty Avoidance (UAI)
-**High**: Greece (112), Portugal (104)  
-**Low**: Singapore (8), India (40)
-
----
-
-### 4. Masculinity vs. Femininity (MAS)
-**High**: Japan (95), Austria (79)  
-**Low**: Sweden (5), Netherlands (14)
-
----
-
-### 5. Long-Term vs. Short-Term Orientation (LTO)
-**Long-Term**: China (87), Germany (83)  
-**Short-Term**: Ghana (4), Puerto Rico (0)
-
----
-
-### 6. Indulgence vs. Restraint (IVR)
-**Indulgent**: Venezuela (100), Mexico (97)  
-**Restrained**: Pakistan (0), Latvia (13)
+You’re not just designing a pricing page — you’re shaping a **culturally legible experience**.
 """)

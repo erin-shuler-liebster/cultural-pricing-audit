@@ -1,13 +1,9 @@
-# ✅ FILE: website_audit.py
 import requests
 from bs4 import BeautifulSoup
-from typing import Dict
+from typing import Dict, List
+import re
 
 def audit_website(url: str) -> Dict[str, str]:
-    """
-    Takes a URL and returns detected pricing communication signals.
-    Attempts to map content to Hofstede's six cultural dimensions.
-    """
     try:
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=10)
@@ -34,3 +30,24 @@ def audit_website(url: str) -> Dict[str, str]:
         results[dim] = ", ".join(found) if found else "None detected"
 
     return results
+
+def extract_persuasive_quotes(text: str) -> dict:
+    patterns = {
+        "power_distance": [r"\bexclusive\b", r"\bpremium\b", r"\btrusted by experts\b"],
+        "individualism": [r"\bpersonalized\b", r"\bjust for you\b", r"\byour\b"],
+        "uncertainty_avoidance": [r"\bguarantee\b", r"\bno risk\b", r"\bsecure checkout\b"],
+        "masculinity": [r"\bwin\b", r"\bbest in class\b", r"\bbeat the competition\b"],
+        "long_term_orientation": [r"\binvestment\b", r"\bfuture value\b", r"\bsustainability\b"],
+        "indulgence": [r"\btreat yourself\b", r"\bdeserve\b", r"\bluxury\b"]
+    }
+
+    quote_matches = {}
+    for dim, pats in patterns.items():
+        matches = []
+        for pat in pats:
+            found = re.findall(pat, text, flags=re.IGNORECASE)
+            if found:
+                matches.extend(found)
+        if matches:
+            quote_matches[dim] = list(set(matches))  # deduplicate
+    return quote_matches
