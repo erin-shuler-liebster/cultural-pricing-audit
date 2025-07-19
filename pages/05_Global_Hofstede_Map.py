@@ -2,6 +2,12 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
+import streamlit as st
+try:
+    import plotly.express as px
+except ImportError:
+    st.error("Plotly is not installed. Add `plotly` to your requirements.txt.")
+
 st.title("🌍 Hofstede Global Map & Pricing Insights")
 
 # Load Hofstede values (limited sample, expand as needed)

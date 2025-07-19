@@ -12,7 +12,12 @@ Simulate how a price change might affect demand based on cultural expectations.
 
 Adjust assumptions to visualize outcomes.
 """)
-
+import streamlit as st
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    st.error("Matplotlib is not installed. Add `matplotlib` to requirements.txt.")
+    
 # Inputs
 base_price = st.slider("Base Price (USD)", 10, 200, 50)
 base_demand = st.slider("Expected Demand at Base Price", 100, 10000, 1000)
