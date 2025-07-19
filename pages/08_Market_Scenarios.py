@@ -3,7 +3,7 @@ import pandas as pd
 from website_audit import audit_website
 from cultural_pricing_algorithm import CulturalPricingTranslator
 
-st.title("🌍 Market Scenario Comparison")
+st.title("Market Scenario Comparison")
 
 url = st.text_input("Enter sales page URL to evaluate")
 countries = st.multiselect("Select countries to compare", ["USA", "France", "Germany", "Sweden"])
@@ -15,7 +15,7 @@ if st.button("Run Market Analysis"):
     if "error" in result:
         st.error(result["error"])
     else:
-        st.subheader("📊 Cultural Match Scores")
+        st.subheader("Cultural Match Scores")
         rows = []
         for country in countries:
             feedback = translator.assess_alignment(result, country)
