@@ -1,8 +1,6 @@
 streamlit
 beautifulsoup4
 requests
+numpy
 pandas
-plotly
-matplotlib
-pdfkit
-jinja2
+reportlab
