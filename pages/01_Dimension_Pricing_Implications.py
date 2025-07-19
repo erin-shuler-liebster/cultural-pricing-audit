@@ -44,26 +44,26 @@ Indulgent cultures embrace premium lifestyle experiences. Restrained cultures ar
 ### Summary Cheat Sheet
 
 **Power Distance**
-- High: Premium tiers feel legitimate  
+- High: Premium tiers feel legitimate
 - Low: Transparent pricing seen as fair
 
 **Uncertainty Avoidance**
-- High: Needs details, structure, and guarantees  
+- High: Needs details, structure, and guarantees
 - Low: Flexibility and simplicity are preferred
 
 **Individualism vs. Collectivism**
-- Individualistic: Customization builds trust  
+- Individualistic: Customization builds trust
 - Collectivistic: Group harmony and fairness matter
 
 **Masculinity vs. Femininity**
-- Masculine: Performance-based value  
+- Masculine: Performance-based value
 - Feminine: Quality of life and harmony
 
 **Long-Term vs. Short-Term Orientation**
-- Long-Term: Accept future investment  
+- Long-Term: Accept future investment
 - Short-Term: Prefer instant value
 
 **Indulgence vs. Restraint**
-- Indulgent: Premium and aspirational messages work  
+- Indulgent: Premium and aspirational messages work
 - Restrained: Practical value is key
 """)
